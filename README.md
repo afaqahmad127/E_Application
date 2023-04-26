@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 to install all the dependencies required
 
-### `npm run start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:2233](http://localhost:2233) to view it in the browser.
@@ -22,4 +22,4 @@ You will also see any lint errors in the console.
 
 ## Home page:
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/afaqahmad127/E_Application/blob/main/public/readme/images/homepage.png?raw=true)
