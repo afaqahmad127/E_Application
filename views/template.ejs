@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 85%; margin: 0 7.5%;">
+        <h3>Application</h3>
+            <% if (appData.length > 0) { %>
+               <%for(var i=0; i<appData.length; i++){%>
+                   <% let app = appData[i]; %>
+                        <h1>To:
+                            <%for(var j=0; j<app.recipientsDetail.length; j++){%>
+                                <%= app.recipientsDetail[j].fullName %>
+                            <%}%>
+                        </h1>
+
+                    <br>
+                        <h1>Subject:<%= app.Subject %></h1>
+
+                    <br>
+            <h1>Body: <%= app.body %></h1>
+
+            <%for(var j=0; j<app.recipientsDetail.length; j++){%>
+            <%if(app.recipientsDetail[j].signature != null || app.recipientsDetail[j].signature != ""){%>
+                <h5>Signature:</h5>
+                <%}%>
+            <%}%>
+            <%for(var k=0; k<app.recipientsDetail.length; k++){%>
+                <%if(app.recipientsDetail[k].signature != null || app.recipientsDetail[k].signature != ""){%>
+                     <img style="height: 100px" src="<%=app.recipientsDetail[k].signature %>">
+                <%}%>
+            <%}%>
+            <%for(var j=0; j<app.recipientsDetail.length; j++){%>
+            <%if(app.recipientsDetail[j].signature != null || app.recipientsDetail[j].signature != ""){%>
+                <%if(app.status[j] === "A"){%>
+                <h5>Status: Accepted</h5>
+        <%}%>
+            <%}%>
+            <%}%>
+         <%}%>
+        <% }%>
+</div>
+</body>
+</html>

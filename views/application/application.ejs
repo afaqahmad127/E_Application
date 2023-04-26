@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <title>Write Application</title>
+  </head>
+  <body>
+  <%
+  let userImage = "";
+  if(user.image !==null){
+      userImage = user.image;
+  }else{
+      userImage = '../public/assets/img/user.png'
+  }
+  %>
+    <header>
+        <nav class="navbar navbar-expand-lg sticky-top navStyle">
+        <a class="brand-navbar" href="/">
+            <img src="../public/assets/img/logo.png" alt="Responsive image" height="40px">
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
+            <span><i class="fa fa-bars" aria-hidden="true"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainMenu">
+            <ul class="navbar-nav ml-auto navList">
+                <li class="nav-item active">
+                    <a href="/" class="nav-link"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                <li class="nav-item" id="section1">
+                    <a href="/" class="nav-link"><i class="fa fa-id-badge" aria-hidden="true"></i> Student Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://kfueit.edu.pk/new-update?1=1" class="nav-link"><i class="fa fa-sticky-note-o" aria-hidden="true"></i> Notice Board</a>
+                </li>
+                <li class="nav-item dropdown" style="cursor: pointer;">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="<%= userImage%>" class="rounded-circle" width="40" height="40" style="border: 2px solid #0DB14B; margin-top: -10px;"  alt="">
+                    </a>
+                    <div class="dropdown-menu boxshow" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                      <a class="dropdown-item " href="/profile">Personal Information</a>
+                      <a class="dropdown-item " href="/dashboard/writeapplication">Write Application</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/signin/logout">Log out</a>
+                    </div>
+                  </li>
+            </ul>
+        </div>
+    </nav>
+    <!--NavBar End-->
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <form enctype="multipart/form-data" action="/dashboard/writeapplication"  method="post" class="dropzone" id="my-awesome-dropzone">
+                    <div class="card-body profilecard">
+                            <h4 style="padding-top: 10px; color: #153980; font-weight: bold; text-align: center;">Write Your Application</h4>
+                        <!--Heading end-->
+                        <div class="row">
+                            <div class="col-md-4 mt-2 myaddbtn">
+                                <p>To,
+                                    <div class="form-group">
+                                        <div class="input-group control-group after-add-more">
+                                            <select type="text"class="form-control" name="recipient" id="users" aria-hidden="true" required>
+                                                <option  selected disabled >Please Select</option>
+                                               <%users.map((u)=>{%>
+                                                    <option><%= u.userName%></option>
+                                                <%})%>
+                                            </select>
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-success2 add-more" type="button">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="copy hide" id="receivers">
+
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                        <!--First row End-->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <select class="form-control mb-3" name="department" id="department" aria-hidden="true" required>
+                                    <option><%=user.department%></option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--Second row End-->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input readonly type="email" name="email" class="form-control" id="email" value="<%=user.email%>" placeholder="abc@kfueit.edu.pk" required>
+                            </div>
+                        </div>
+                        <!--Fourth row End-->
+                        <div class="row">
+                            <div class="col-md-12 mt-3 myaddbtn">
+                                <label>Subject</label>
+                                    <div class="form-group">
+                                        <div class="input-group control-group after-add-moree">
+                                            <select type="text"class="form-control" name="subject" id="subject" aria-hidden="true" required>
+                                                <option  selected disabled >Select Your Subject</option>
+                                                <option >Sick Leave</option>
+                                                <option >Duplicate ID Card</option>
+                                                <option >Registration Issue</option>
+                                                <option >Other</option>
+                                            </select>
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-success2 add-moree" placeholder="Write Your Subject" type="button">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+<!--                                    <div class="copy hide">-->
+<!--                                        <div class="control-group input-group" style="margin-top:10px">-->
+<!--                                            <input type="text" name="addmore[]" class="form-control">-->
+<!--                                            <div class="input-group-btn">-->
+<!--                                                <button class="btn btn-danger remove" type="button">-->
+<!--                                                    <i class="fa fa-remove"></i>-->
+<!--                                                </button>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                            </div>
+                        </div>
+                        <!--Fifth row End-->
+                        <div class="row">
+                            <div class="col-md-12 mt-2">
+                                <textarea name="body" id="body" placeholder="Write Your Application Here" class="form-control" cols="50" rows="5" required>
+Respected sir/ madam,
+I would like to inform you that I _________ (student name) have enrolled into your
+__________ (program name) program which shall commence from __/__/____ (date).
+I would like to inform you that my student enrollment number is ____________ (mention
+student enrollment number). This is to bring into your kind consideration that as per the
+norms, I am required to bring an ID card in order to enter your premises. But,
+unfortunately, my ID card is not issued yet. So I hereby request you to kindly issue my
+ID card at the earliest
+                                </textarea>
+                            </div>
+                        </div>
+                        <!--Sixth row End-->
+<!--                        <div class="row mt-4">-->
+<!--                            <div class="col-md-12 ">-->
+<!--                                <p>Sincerly,</p>-->
+<!--                                <input type='file' name="file" class="mysignpicture" onchange="" required/>-->
+<!--                                <img id="blah" class="signature"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <!--Seventh row End-->
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <input type="submit" id="sendAppBtn" class="btn my-button" value="Submit">
+                            </div>
+                        </div>
+                        <!--Last button End-->
+                       
+                    </div>
+               </form>
+            </div>
+        </div>
+    </div>
+     <!--Footer Start-->
+     <footer class=" upfooter">
+        <div class="card mx-5">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="footer-text pull-left">
+                        <div class="d-flex">
+                          <img src="../public/assets/img/UEIT_Logo.png" class="img-fluid" width="210" alt="">
+                        </div>
+                        <p class="card-text">Khwaja Fareed<br>
+                         University of Engineering & Information Technology<br>
+                          Abu Dhabi Road, Rahim Yar Khan</p>
+                        <div class="social mt-1 mb-3">
+                            <a href="https://www.facebook.com/kfueit.official"><i class="fa fa-facebook-official fa-lg"></i></a>
+                            <a href="https://www.instagram.com/kfueit.official/?igshid=j0k68f3o9584&hl=en"><i class="fa fa-instagram fa-lg"></i></a>
+                            <a href="https://twitter.com/kfueit_official"><i class="fa fa-twitter fa-lg"></i></a>
+                            <a href="https://pk.linkedin.com/company/khawaja-fareed-university-of-engineering-&-information-technology"><i class="fa fa-linkedin-square fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-2">
+                    <h5 class="heading lastlinks">Additional Links</h5>
+                    <ul>
+                        <li><a href="https://kfueit.edu.pk/registrar-department?main=620&parent=Administration">Administration</a></li>
+                        <li><a href="https://kfueit.edu.pk/library?1=1&main=620&parent=Administration">Library</a></li>
+                        <li><a href="https://kfueit.edu.pk/scholarships-and-financial-assistance-department-1?main=620&parent=Administration">Scholarships</a></li>
+                        <li><a href="https://kfueit.edu.pk//career-at-kfueit?main=814&parent=Careers&menu=side-link">Career</a></li>
+                        <li><a href="https://kfueit.edu.pk/research-1?main=958&parent=Research">Research Centers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mt-2 mb-2">
+                    <h5 class="heading lastlinks">About Us</h5>
+                    <ul class="card-text">
+                        <li><a href="/about">Why KFUEIT</a></li>
+                        <li><a href="/signup">Join Us</a></li>
+                        <li><a href="/faqs">FAQ's</a></li>
+                    </ul>
+                </div>
+        </div>
+    </div>
+  </footer>
+  <!--First footer End-->
+  <footer class="footer-bar">
+              <div class="container">
+                  <div class="row text-center pt-3">
+                      <div class="col-sm-12 footer-bar">
+                          <p class="footer-text mx-auto">&copy; 2015-2021 Khwaja Fareed University of Engineering & Information Technology kfueit.edu.pk.</p>
+                      </div>
+                  </div>
+              </div>
+              <!--end container-->
+          </footer>
+      
+</header>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="../public/assets/myscripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </body>
+<script>
+    let recipients = [];
+    $(document).ready(function() {
+        $(".add-more").click(function(){
+            var html = $(".copy").html();
+            $(".after-add-more").after(html);
+        });
+        $("body").on("click",".remove",function(){
+            let userName = $(this).val();
+            const index = recipients.indexOf(userName);
+            if (index > -1) {
+                recipients.splice(index, 1);
+            }
+            $(this).parents(".control-group").remove();
+        });
+    });
+
+    //
+    //     $(document).ready(function() {
+    //         $(".add-moree").click(function(){
+    //         var html = $(".copy").html();
+    //         $(".after-add-moree").after(html);
+    //         });
+    //         $("body").on("click",".remove",function(){
+    //         $(this).parents(".control-group").remove();
+    //         });
+    //         });
+    /*add more field button */
+
+    $(document).ready(function() {
+        function removeRecipient(userName) {
+            console.log('Called');
+            const index = recipients.indexOf(userName);
+            if (index > -1) {
+                recipients.splice(index, 1);
+                $("#receivers").empty();
+                for (let i = 0; i < recipients.length; i++) {
+                    var div = `<div class="control-group input-group" style="margin-top:10px">
+                 <input type="text" class="form-control" value="${recipients[i]}" readonly>
+                     <div class="input-group-btn">
+                     <button onclick="removeRecipient(recipients[i])}" class="btn btn-danger remove" type="button">
+                     <i class="fa fa-remove"></i>
+                    </button>
+                    </div>
+                    </div>`
+                    $(div).appendTo('#receivers');
+                }
+            }
+        }
+        $("#users").change(function () {
+            var selectedUser = $(this).children("option:selected").val();
+            if (recipients.indexOf(selectedUser) === -1) {
+                recipients.push(selectedUser);
+                var div = `<div class="control-group input-group" style="margin-top:10px">
+                 <input type="text" class="form-control" value="${selectedUser}" readonly>
+                     <div class="input-group-btn">
+                     <button value="${selectedUser}" class="btn btn-danger remove" type="button">
+                     <i class="fa fa-remove"></i>
+                    </button>
+                    </div>
+                    </div>`
+                $(div).appendTo('#receivers');
+                console.log('Added');
+            }
+            ;
+        });
+        $('#sendAppBtn').click(function (e) {
+            console.log('CALLED');
+            e.preventDefault();
+            // var data =new FormData(document.getElementById("my-awesome-dropzone"));
+            // var formatted = [...data.values()];
+            // console.log([...data.keys()].length);
+            // if([...data.keys()].length >=5){
+            let senderEmail = $("#email").val();
+            let subject = $("#subject").val();
+            let body = $("#body").val();
+                let rpt = [];
+                console.log(recipients.length)
+                recipients.map((r)=>{
+                    console.log(r);
+                    let u = {
+                        'username':r,
+                        'status':'P',
+                        'message':''
+                    }
+                    rpt.push(u);
+                })
+               // data.append('recipients', rpt);
+               //  console.log(...data.values())
+            let jsonData ={
+                'senderEmail': senderEmail,
+                'subject': subject,
+                'body':body,
+                'recipients':rpt,
+                'length':rpt.length,
+            };
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    url: "/dashboard/writeapplication",
+                    data: JSON.stringify(jsonData),
+                    success: function (data, textStatus, jqXHR) {
+                        window.location = '/dashboard';
+                    },
+                    error: function (data, jqXHR, textStatus, errorThrown) {
+                        if(data.status === 500){
+                            Swal.fire({
+                                text: "Sorry, There are some errors detected in Server, please try again.",
+                                icon: "error",
+                                buttonsStyling: !1,
+                                confirmButtonText: "Ok, got it!",
+                                customClass: {confirmButton: "btn btn-primary"},
+                            });
+                        }
+                        // showError();
+                    }
+                });
+        })
+    });
+</script>
+
+</html>

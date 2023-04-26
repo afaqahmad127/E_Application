@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sign Up</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  </head>
+  <body>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 pt-2 pb-2">
+                <a href="/">
+                    <img src="public/assets/img/logo.png" alt="Responsive image" height="40px">
+                </a>
+                <p class="float-right">
+                    <a class="float-right" href="/"  style="color: #0DB14B">
+                    <i class="fa fa-home" style="font-size: 25px;" aria-hidden="true"></i></a>
+                </p>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 sidepic" style="background-color: #0DB14B;">
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 sidepic">
+                <div class="d-flex justify-content-center border border-light p-5 mt-5">
+                    <img src="public/assets/signin/2.png" class="img-fluid" alt="">
+                  </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 signinpage2 ">
+                    <div class="login-form">
+                    <div class="main-div2">
+                        <div class="panel2 pt-2">
+                            <p><a href="/signin" style="float: right; text-decoration: none; font-weight: bold; font-size: 16px;">
+                                <i class="fa fa-arrow-circle-o-left fa-lg" aria-hidden="true"></i></a></p>
+                       <h4>Sign Up</h4>
+                       <p>Have an account ? 
+                           <a href="/signin">&nbsp;Log In</a>
+                        </p>
+                       </div>
+                        <small id="error" class="text-danger"></small>
+                       <form class="row g-3 needs-validation">
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                             </div>
+                            <input id="fullName" value="" required="required" name="fullName" class="form-control" placeholder="Full name" type="text">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                             </div>
+                            <input id="userName" value="" name="userName" class="form-control" placeholder="Username" type="text" required>
+                        </div>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-registered" aria-hidden="true"></i></span>
+                             </div>
+                             <input value="" type="text" id="registrationNo" name="registrationNo"  class="form-control" placeholder="Registration No" required>
+                        </div>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+                             </div>
+                                <input value="" required="required" class="form-control" placeholder= "XXXXX-XXXXXXX-X" type="number" id="cnic" name="cnic">
+                            </div>
+                            <span id="message1"></span>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                             </div>
+                            <input value="" id="email" name="email" class="form-control" placeholder="@kfueit.edu.pk" type="email" required>
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                            </div>
+                            <select name="initNo" class="custom-select" style="max-width: 120px;">
+                                <option disabled selected>+92</option>
+                            </select>
+                            <input value="" required="required" type="number" id="phoneNo" name="phoneNo"  class="form-control" placeholder="Phone number">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                            </div>
+                            <select name="department" class="form-control" id="department" required>
+                                <option value="" disabled selected>Select your Department</option>
+                                <option>Department of Engineering</option>
+                                <option>Department of Agriculture</option>
+                                <option >Accounting Office</option>
+                                <option >Tresurer's Office</option>
+                                <option >MPDC</option>
+                                <option >MCTC</option>
+                                <option >MCR</option>
+                                <option >Mayor's Office</option>
+                                <option >Tourism Office</option>
+                            </select>
+                        </div> <!-- form-group end.// -->
+                           <div class="form-group input-group">
+                               <div class="input-group-prepend">
+                                   <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                               </div>
+                               <select name="status" class="form-control" id="status" required>
+                                   <option value=""selected disabled >Status</option>
+                                   <option >Student</option>
+                                   <option >Teacher</option>
+                                   <option >Professor</option>
+                                   <option >Principal</option>
+                               </select>
+                           </div>
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                            <input value="" id="password" name="password" class="form-control" placeholder="Create password" type="password" required>
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            </div>
+                            <input value="" id="rePassword" name="rePassword" class="form-control" placeholder="Repeat password" type="password"  required>
+                        </div> <!-- form-group// -->
+                            <button id="signUpBtn" type="submit" class="btn btn-primary2"> Sign Up</button>                                                              
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Form End-->
+    <footer class="footer-bar ">
+        <div class="container">
+            <div class="row text-center pt-3">
+                <div class="col-sm-12 footer-bar">
+                    <p class="footer-text mx-auto">&copy; 2015-2021 Khwaja Fareed University of Engineering & Information Technology kfueit.edu.pk.</p>
+                </div>
+            </div>
+        </div>
+        <!--end container-->
+    </footer>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="public/assets/myscripts.js"></script>
+  </body>
+  <script>
+      function showError() {
+          Swal.fire({
+              text: "Sorry, looks like there are some errors detected, please try again.",
+              icon: "error",
+              buttonsStyling: !1,
+              confirmButtonText: "Ok, got it!",
+              customClass: {confirmButton: "btn btn-primary"},
+          });
+      }
+    $(document).ready(function () {
+        $("#signUpBtn").click(function (n) {
+            document.getElementById('error').innerHTML = "";
+            n.preventDefault();
+            let fullName = $("#fullName").val();
+            let userName = $("#userName").val();
+            let regNum = $("#registrationNo").val();
+            let cnic = $("#cnic").val();
+            let email = $("#email").val();
+            let phoneNo = $("#phoneNo").val();
+            let department = $("#department").val();
+            let status = $("#status").val();
+            let password = $("#password").val();
+            let rePassword = $("#rePassword").val();
+            // console.log(fullName, userName, regNum, cnic, email, phoneNo, department, status, password, rePassword);
+            if(password === rePassword){
+                if(fullName === "" || userName === "" || regNum === "" || cnic === "" || email === "" || phoneNo === "" || department === "" || status === "" || password === "" || rePassword === ""){
+                    Swal.fire({
+                        text: "All fields are required, please try again.",
+                        icon: "error",
+                        buttonsStyling: !1,
+                        confirmButtonText: "Ok, got it!",
+                        customClass: {confirmButton: "btn btn-primary"},
+                    });
+                }else{
+                    let jsonData = JSON.parse(JSON.stringify({
+                        'fullName': fullName,
+                        'userName': userName,
+                        'registrationNo':regNum,
+                        'cnic':cnic,
+                        'email':email,
+                        'phoneNo':phoneNo,
+                        'department':department,
+                        'status':status,
+                        'password':password,
+                    }));
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/x-www-form-urlencoded",
+                        url: "/signup",
+                        data: jsonData,
+                        success: function (data, textStatus, jqXHR) {
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 2000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Sending OTP please wait...'
+                            }).then(() => {
+                                Swal.fire({
+                                    text: "We've sent otp on your email check your mail!",
+                                    icon: "success",
+                                    buttonsStyling: !1,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {confirmButton: "btn btn-primary"},
+                                }).then((_)=>{
+                                    window.location = `/signup/verifyaccount?token=${data}`;
+                                });
+                            });
+
+
+                        },
+                        error: function (data, jqXHR, textStatus, errorThrown) {
+                            if(data.status === 500){
+                                Swal.fire({
+                                    text: "Sorry, There are some errors detected in Server, please try again.",
+                                    icon: "error",
+                                    buttonsStyling: !1,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {confirmButton: "btn btn-primary"},
+                                });
+                            }else {
+                                let error = data.responseJSON.message
+                                if (error === "username exist") {
+                                    document.getElementById('error').innerHTML = "User Name Already Exist!";
+                                } else if (error === "not student") {
+                                    document.getElementById('error').innerHTML = "Enter an Official Email given by University!!";
+                                }else if (error === "email exist") {
+                                    document.getElementById('error').innerHTML = "Email Already Exist!";
+                                } else if (error === "reg exist") {
+                                    document.getElementById('error').innerHTML = "Registration Number Already Exist!";
+                                } else if (error === "cnic exist") {
+                                    document.getElementById('error').innerHTML = "CNIC Already Exist!";
+                                }else if(error === "email sending error"){
+                                    document.getElementById('error').innerHTML = "Email sending error maybe email is wrong";
+                                }
+                                showError();
+                            }
+                        }
+                    });
+
+                }
+            }else{
+                document.getElementById('error').innerHTML = "Password Don't match!";
+               showError();
+            }
+        })
+    })
+</script>
+
+</html>

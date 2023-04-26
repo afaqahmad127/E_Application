@@ -1,0 +1,10 @@
+{
+	"PORT": 2233,
+	"LIVE_MONGOOSE_URL": "mongodb://0.0.0.0:27017/E_Application",
+	"LOCAL_MONGOOSE_URL": "mongodb://0.0.0.0:27017/E_Application",
+	"OWNER_EMAIL": "afaq.ahmad.developer@gmail.com",
+	"OWNER_EMAIL_PASSWORD": "malik1133afaq",
+	"JWT_KEY": "secret",
+	"VERIFY_EMAIL_SUBJECT": "Account verification Mail",
+	"VERIFY_EMAIL_BODY": "Please use the given OTP to Verify your Account:"
+}
